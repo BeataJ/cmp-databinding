@@ -9,7 +9,8 @@ import {
   AfterContentInit, 
   AfterContentChecked,
   AfterViewInit,
-  AfterViewChecked
+  AfterViewChecked,
+  OnDestroy
 } from '@angular/core';
 
 @Component({
@@ -25,7 +26,8 @@ export class ServerElementComponent implements
   AfterContentInit,
   AfterContentChecked,
   AfterViewInit,
-  AfterViewChecked {
+  AfterViewChecked,
+  OnDestroy {
   @Input('srvElement') element: {type: string, name: string, content: string};
 
   constructor() { 
@@ -54,11 +56,15 @@ export class ServerElementComponent implements
   }
 
   ngAfterViewInit() {
-    console.log('ngAfterContentInit called!')
+    console.log('ngAfterViewInit called!')
   }
 
   ngAfterViewChecked() {
-    console.log('ngAfterContentChecked');
+    console.log('ngAfterViewChecked');
+  }
+
+  ngOnDestroy() {
+    console.log('ngOnDestroy called!')
   }
 
 }
