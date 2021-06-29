@@ -1,4 +1,13 @@
-import { Component, Input, OnInit, ViewEncapsulation, OnChanges, SimpleChanges, DoCheck } from '@angular/core';
+import { 
+  Component, 
+  Input, 
+  OnInit, 
+  ViewEncapsulation, 
+  OnChanges, 
+  SimpleChanges, 
+  DoCheck, 
+  AfterContentInit 
+} from '@angular/core';
 
 @Component({
   selector: 'app-server-element',
@@ -6,7 +15,7 @@ import { Component, Input, OnInit, ViewEncapsulation, OnChanges, SimpleChanges, 
   styleUrls: ['./server-element.component.css'],
   encapsulation: ViewEncapsulation.Emulated
 })
-export class ServerElementComponent implements OnInit, OnChanges, DoCheck {
+export class ServerElementComponent implements OnInit, OnChanges, DoCheck, AfterContentInit {
   @Input('srvElement') element: {type: string, name: string, content: string};
 
   constructor() { 
@@ -24,6 +33,10 @@ export class ServerElementComponent implements OnInit, OnChanges, DoCheck {
 
   ngDoCheck() {
     console.log('ngDoCheck called!')
+  }
+
+  ngAfterContentInit() {
+    console.log('ngAfterContentInit called!')
   }
 
 }
