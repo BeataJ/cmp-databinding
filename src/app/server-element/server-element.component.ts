@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, Input, OnInit, ViewEncapsulation, OnChanges, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-server-element',
@@ -9,9 +9,17 @@ import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 export class ServerElementComponent implements OnInit {
   @Input('srvElement') element: {type: string, name: string, content: string};
 
-  constructor() { }
+  constructor() { 
+    console.log('constructor called')
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    console.log('ngOnchanges called')
+    console.log(changes)
+  }
 
   ngOnInit(): void {
+    console.log('ngOnInit called')
   }
 
 }
